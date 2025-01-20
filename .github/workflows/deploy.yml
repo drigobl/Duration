@@ -23,3 +23,4 @@ jobs:
         with:
           project: "drigobl-duration-48"  
           entrypoint: "main.ts"
+          import-map: "--allow-net --allow-env"
