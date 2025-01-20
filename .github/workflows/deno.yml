@@ -1,14 +1,25 @@
 name: Deno Deploy
-on: [push]
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      deployments: write
     steps:
-      - uses: actions/checkout@v3
-      - uses: denoland/setup-deno@v1
+      - name: Clone repository
+        uses: actions/checkout@v3
+
+      - name: Setup Deno
+        uses: denoland/setup-deno@v1
         with:
-          deno-version: v2.1.6
-      - name: Run Deno
-        run: |
-          deno run --allow-net main.ts
+          deno-version: v1.x
+
+      - name: Run app
+        run: deno run --allow-net main.ts
