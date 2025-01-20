@@ -1,0 +1,14 @@
+name: Deno Deploy
+on: [push]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: denoland/setup-deno@v1
+        with:
+          deno-version: v2.1.6
+      - name: Run Deno
+        run: |
+          deno run --allow-net main.ts
