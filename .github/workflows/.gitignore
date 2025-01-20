@@ -1,4 +1,12 @@
-node_modules/
-package.json
-package-lock.json
-.npm
+# Editor directories and files
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# System files
+.DS_Store
+Thumbs.db
